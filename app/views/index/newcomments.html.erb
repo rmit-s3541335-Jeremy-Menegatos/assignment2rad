@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "application" %>
+  <header>
+<a href="/index/homepage">Home</a>
+<a href="/index/newcomments">Comments</a>
+<a href="/index/submit">Submit</a>
+<a href="/users/login">Login</a>
+</header>
+<image>
+<%= image_tag("logo.jpg", :alt => "logo") %>
+</image>
+<h1>New Comments</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Latest Comments</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+
+          
+        <td><%= comment.comment %></td>
+        <td><%= link_to 'Show', comment.post %></td>
+           <% end %>
+  </tbody>
+</table>
+
+<footer>
+    <a href="/index/about">About</a>
+    <a href="/index/json">API</a>
+  
+</footer>
+</html>

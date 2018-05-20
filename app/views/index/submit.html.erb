@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<header><%= image_tag("logo.jpg", :alt => "logo") %></header>
+<h1>Submit</h1>
+<a href="/index/homepage">Home</a>
+<a href="/index/newcomments">Comments</a>
+<a href="/index/submit">Submit</a>
+<a href="/users/login">Login</a>
+
+<div class="section">
+<%= simple_form_for Post.new do |f| %>
+  <div class="field">
+    <div class="control">
+      <%= f.input :link, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :content, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
+    </div>
+  </div>
+  <%= f.button :submit, 'Create new post', class: "button is-primary" %>
+<% end %>
+</div>
+<footer>
+    <a href="/index/about">About</a>
+  <a href="/index/json">API</a>
+</footer>
+
+</html>

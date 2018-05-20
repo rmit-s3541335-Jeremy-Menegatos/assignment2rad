@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "application" %>
+  <header>
+<a href="/index/homepage">Home</a>
+<a href="/index/newcomments">Comments</a>
+<a href="/index/submit">Submit</a>
+<a href="/users/login">Login</a>
+</header>
+
+<%= form_with(model: @post, local: true) do |form| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link, id: :post_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :post_content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<footer>
+    <a href="/index/about">About</a>
+    <a href="/index/json">API</a>
+  
+</footer>
+</html>

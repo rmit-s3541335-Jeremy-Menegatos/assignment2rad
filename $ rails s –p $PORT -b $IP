@@ -1,0 +1,18 @@
+URL link to site:
+radass2-jeremy321.c9users.io
+Run Server:
+$ rails s -p $PORT -b $IP
+Check contents of databases:
+sqlite3 db/development.sqlite3
+
+
+
+code i need to fix:
+
+<!-- <div>
+ <% #if @username.present?%>
+     <b>You are logged in as: <%= #@username %></b>
+    <%#else%>
+       <b>Not currently logged in</b>
+   <%#end%>
+</div> -->

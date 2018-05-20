@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "application" %>
+  <header>
+<a href="/index/homepage">Home</a>
+<a href="/index/newcomments">Comments</a>
+<a href="/index/submit">Submit</a>
+<a href="/users/login">Login</a>
+</header>
+<image>
+<%= image_tag("logo.jpg", :alt => "logo") %>
+</image>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @post.link %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> 
+
+
+<section class="section comments">
+    <div class="container">
+        <h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> Comments</h2>
+        <%= render @post.comments %>
+        <div class="comment-form">
+            <hr />
+            <h3 class="subtitle is-3">Leave a reply</h3>
+             <%= render 'comments/form' %>
+        </div>
+    </div>
+</section>
+<footer>
+    <a href="/index/about">About</a>
+    <a href="/index/json">API</a>
+  
+</footer>
+</html>

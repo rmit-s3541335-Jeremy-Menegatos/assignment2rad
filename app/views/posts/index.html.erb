@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <%= stylesheet_link_tag "application" %>
+  <header>
+<a href="/index/homepage">Home</a>
+<a href="/index/newcomments">Comments</a>
+<a href="/index/submit">Submit</a>
+<a href="/users/login">Login</a>
+</header>
+<image>
+<%= image_tag("logo.jpg", :alt => "logo") %>
+</image>
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Link</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.link %></td>
+        <td><%= post.content %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+<footer>
+    <a href="/index/about">About</a>
+    <a href="/index/json">API</a>
+  
+</footer>
+</html>
